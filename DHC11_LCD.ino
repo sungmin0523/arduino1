@@ -15,15 +15,14 @@ void setup() {
   // Print a message to the LCD.
   lcd.backlight();
   lcd.setCursor(3,0);
-  lcd.print("Hello, world!");
+  lcd.print("Hello, World!");
   lcd.setCursor(2,1);
-  lcd.print("Myeungmun!");
+  lcd.print("Myeungmun !");
+
 }
 
 void loop() {
-    
-  lcd.init();
-  lcd.clear();
+
   // start working...
   Serial.println("=================================");
   Serial.println("Sample DHT11...");
@@ -41,15 +40,20 @@ void loop() {
   Serial.print("Sample OK: ");
   Serial.print((int)temperature); Serial.print(" *C, "); 
   Serial.print((int)humidity); Serial.println(" H");
+  int t=temperature;
 
   // Print a message to the LCD.
+  lcd.init();
   lcd.backlight();
   lcd.setCursor(0,0);
-    
-  lcd.print("                ");
   lcd.print("Temp = ");
   lcd.setCursor(7,0);
-  lcd.println(temperature);
+  lcd.println(t);
+  lcd.setCursor(9,0);
+  lcd.write(223);
+   lcd.setCursor(10,0);
+  lcd.print("C");
+ 
   lcd.setCursor(0,1);
   lcd.print("Humi = ");
   lcd.setCursor(7,1);
